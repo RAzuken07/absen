@@ -4,11 +4,25 @@ class Kelas {
   final int idKelas;
   final String namaKelas;
   final int idMatakuliah; // FK
+  final String? namaMatakuliah; // Dari join
+  final String? nipDosen; // Dari join
+  final String? hari;
+  final String? jamMulai;
+  final String? jamSelesai;
+  final String? ruangan;
+  final int? kapasitas;
 
   Kelas({
     required this.idKelas,
     required this.namaKelas,
     required this.idMatakuliah,
+    this.namaMatakuliah,
+    this.nipDosen,
+    this.hari,
+    this.jamMulai,
+    this.jamSelesai,
+    this.ruangan,
+    this.kapasitas,
   });
 
   factory Kelas.fromJson(Map<String, dynamic> json) {
@@ -16,6 +30,13 @@ class Kelas {
       idKelas: json['id_kelas'] as int,
       namaKelas: json['nama_kelas'] as String,
       idMatakuliah: json['id_matakuliah'] as int,
+      namaMatakuliah: json['nama_matakuliah'] as String?,
+      nipDosen: json['nip_dosen'] as String?,
+      hari: json['hari'] as String?,
+      jamMulai: json['jam_mulai'] as String?,
+      jamSelesai: json['jam_selesai'] as String?,
+      ruangan: json['ruangan'] as String?,
+      kapasitas: json['kapasitas'] as int?,
     );
   }
 }
